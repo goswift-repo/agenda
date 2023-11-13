@@ -483,7 +483,8 @@ export class Job<DATA = unknown | void> {
 					});
 
 					if (this.isPromise(result)) {
-						result.catch((error: Error) => reject(error));
+            result.then((res: any) => resolve("done")).catch((error: Error) => reject(error));
+						// result.catch((error: Error) => reject(error));
 					}
 				} catch (error) {
 					reject(error);
